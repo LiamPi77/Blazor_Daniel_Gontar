@@ -1,0 +1,35 @@
+﻿@page "/7BOOM"
+<h3>_7BOOM</h3>
+
+<div class="7boom">
+    <p>
+        @for(int i = 1; i < 101; i++)
+        {
+            <span>@Boom7(i)</span>
+            <span> </span>
+
+        }
+    </p>
+</div>
+
+@code {
+    public static bool Is7(int num)
+    {
+        while(num < 0)
+        {
+            int digit = num % 10;
+            if (digit == 7)
+                return true;
+            num = num / 10;
+        }
+        return false;
+    }
+
+    public static string Boom7(int num)
+    {
+        string a = " ";
+        if (Is7(num) == true || num % 7 == 0)
+            return "Boom" + a;
+        return num.ToString();
+    }
+}
